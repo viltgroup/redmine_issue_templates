@@ -122,7 +122,7 @@ module IssueTemplatesCommon
         value[:multiple] = true
       end
 
-      value[:field_format] = 'date' if %(start_date due_date).include?(field)
+      value[:field_format] = 'date' if %w[start_date due_date].include?(field)
 
       value[:field_format] = 'ratio' if field == 'done_ratio'
 

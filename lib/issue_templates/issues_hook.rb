@@ -4,13 +4,13 @@ module IssueTemplates
   class IssuesHook < Redmine::Hook::ViewListener
     include IssuesHelper
 
-    CONTROLLERS = %(
-      'IssuesController' 'IssueTemplatesController' 'ProjectsController' 'IssueTemplatesSettingsController'
-      'GlobalIssueTemplatesController' 'SettingsController' 'NoteTemplatesController'
-      'GlobalNoteTemplatesController'
-    ).freeze
+    CONTROLLERS = %w[
+      IssuesController IssueTemplatesController ProjectsController IssueTemplatesSettingsController
+      GlobalIssueTemplatesController SettingsController NoteTemplatesController
+      GlobalNoteTemplatesController
+    ].freeze
 
-    ACTIONS = %('new' 'update_form' 'create', 'show').freeze
+    ACTIONS = %w[new update_form create show].freeze
 
     def view_layouts_base_html_head(context = {})
       plugin_screen = need_template_js?(context[:controller])
