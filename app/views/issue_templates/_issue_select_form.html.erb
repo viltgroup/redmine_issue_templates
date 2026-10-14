@@ -1,4 +1,7 @@
 <% return '' unless @issue.project.module_enabled? :issue_templates %>
+<% plugin_setting = Setting.plugin_redmine_issue_templates %>
+<% preview_button_enabled = plugin_setting['enable_preview_template_contents_button'].to_s == 'true' %>
+<% clear_button_enabled   = plugin_setting['enable_clear_subject_and_description_button'].to_s == 'true' %>
 <% return '' unless User.current.allowed_to?(:show_issue_templates, @issue.project)  %>
 <div id='template_area' style='display: none;'>
   <p>
@@ -8,9 +11,11 @@
     </select>
 
     <a class='icon icon-hint' id='issue_template_related_link' style='display: none;' target='_blank' rel='noopener'></a>
+<% if preview_button_enabled %>
     <a class='icon template_tooltip' id='link_template_dialog' href='#issue_template_dialog'>
       <%=h l(:display_and_filter_issue_templates_in_dialog, default: 'Filter Templates') %>
     </a>
+<% end %>
     <% if setting.enable_help? %>
         <a class='icon icon-help template-help' title='<%= l(:about_template_help_message) %>'
            data-tooltip-area='template-help-message-area'
@@ -19,9 +24,11 @@
           <span class='tooltip-area' id='template-help-message-area'></span>
         </a>
     <% end %>
+<% if clear_button_enabled %>
     <a class='icon icon-erase' title='<%= l(:erase_issue_subject_and_description, default: 'Erase') %>' id='erase_template'>
       <%= l(:erase_issue_subject_and_description, default: 'Erase') %>
     </a>
+<% end %>
     <a class='icon icon-reload disabled' title='<%= l(:revert_before_applying_template, default: 'Revert') %>'
        id='revert_template' disabled='disabled'>
       <%= l(:revert_before_applying_template, default: 'Revert') %>
@@ -94,6 +101,7 @@
     })
 
     // Show dialog
+<% if preview_button_enabled %>
     document.getElementById('link_template_dialog').addEventListener('click', (event) => {
       let templateListUrl = '<%= url_for(controller: 'issue_templates',
                                          action:'list_templates', project_id: project_id, issue_tracker_id: @issue.tracker.id) %>'
@@ -101,24 +109,30 @@
 
       templateNS.openDialog(templateListUrl, templateListTitle)
     })
+<% end %>
 
     // revert template
     document.getElementById('revert_template').addEventListener('click', (event) => {
       templateNS.revertAppliedTemplate()
     })
 
+<% if clear_button_enabled %>
     document.getElementById('erase_template').addEventListener('click', (event) => {
       templateNS.eraseSubjectAndDescription()
     })
+<% end %>
 
     // keydown keyup
-    document.querySelector("input[name='template_search_filter']").addEventListener('keydown', (event) => {
-      templateNS.filterTemplate(event)
-    })
+    const templateSearchFilter = document.querySelector("input[name='template_search_filter']")
+    if (templateSearchFilter) {
+      templateSearchFilter.addEventListener('keydown', (event) => {
+        templateNS.filterTemplate(event)
+      })
 
-    document.querySelector("input[name='template_search_filter']").addEventListener('keyup', (event) => {
-      templateNS.filterTemplate(event)
-    })
+      templateSearchFilter.addEventListener('keyup', (event) => {
+        templateNS.filterTemplate(event)
+      })
+    }
 
     // NOTE: Workaround for GitHub issue: 193
     // Start observing the target node for configured mutations

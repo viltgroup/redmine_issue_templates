@@ -53,7 +53,9 @@ Redmine::Plugin.register :redmine_issue_templates do
              default: {
                apply_global_template_to_all_projects: 'false',
                apply_template_when_edit_issue: 'false',
-               enable_builtin_fields: 'false'
+               enable_builtin_fields: 'false',
+               enable_preview_template_contents_button: 'false',
+               enable_clear_subject_and_description_button: 'false'
              }
 
     menu :admin_menu, :redmine_issue_templates, { controller: 'global_issue_templates', action: 'index' },

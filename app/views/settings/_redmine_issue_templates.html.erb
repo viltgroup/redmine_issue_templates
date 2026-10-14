@@ -27,6 +27,26 @@
   </p>
 
   <p>
+    <label for='settings_enable_preview_template_contents_button'>
+      <%= l(:label_enable_preview_template_contents_button,
+            default: 'Enable "Preview Template Contents" button') %>
+    </label>
+    <%= hidden_field_tag('settings[enable_preview_template_contents_button]', 0, :id => nil).html_safe %>
+    <%= check_box_tag 'settings[enable_preview_template_contents_button]', true,
+                      @settings['enable_preview_template_contents_button'] == 'true' %>
+  </p>
+
+  <p>
+    <label for='settings_enable_clear_subject_and_description_button'>
+      <%= l(:label_enable_clear_subject_and_description_button,
+            default: 'Enable "Clear subject and description text" button') %>
+    </label>
+    <%= hidden_field_tag('settings[enable_clear_subject_and_description_button]', 0, :id => nil).html_safe %>
+    <%= check_box_tag 'settings[enable_clear_subject_and_description_button]', true,
+                      @settings['enable_clear_subject_and_description_button'] == 'true' %>
+  </p>
+
+  <p>
     <label for='settings_enable_builtin_fields'>
       <%= l(:label_enable_builtin_fields, default: 'Enable Builtin Field support') %>
     </label>

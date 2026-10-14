@@ -40,3 +40,5 @@ pt:
   no_issue_templates_for_this_redmine: "Não há modelos de tarefa globais definidos neste redmine."
   only_admin_can_associate_global_template: "Somente administradores podem associar modelos globais a este projeto."
   text_no_tracker_enabled_for_global: "Nenhum tipo foi definido ainda.\nPor favor defina os tipos, pois os modelos são atribuídos a estes."
+  label_enable_preview_template_contents_button: Activar o botao "Preview Template Contents"
+  label_enable_clear_subject_and_description_button: Activar o botao "Clear subject and description text"
