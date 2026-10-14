@@ -100,6 +100,33 @@
       templateNS.loadTemplate()
     })
 
+    // Preselect and apply the template named by ?issue_template=<id>, so a link
+    // can open the new-issue form with its template already filled in.
+    // setPulldown() populates the select asynchronously and then dispatches
+    // 'change', so wait for the option to exist, select it, and let the handler
+    // above do the applying.
+<% preselect_template_id = params[:issue_template].to_s[/\A[0-9]{1,10}\z/] %>
+<% if preselect_template_id.present? %>
+    ;(() => {
+      const wanted = '<%= preselect_template_id %>'
+      const select = document.getElementById('issue_template')
+      if (!select) return
+      let applied = false
+      const observer = new MutationObserver(() => apply())
+      const apply = () => {
+        if (applied) return
+        const option = select.querySelector('optgroup > option[value="' + wanted + '"]')
+        if (!option) return
+        applied = true
+        observer.disconnect()
+        option.selected = true
+        select.dispatchEvent(new Event('change'))
+      }
+      observer.observe(select, { childList: true, subtree: true })
+      apply()
+    })()
+<% end %>
+
     // Show dialog
 <% if preview_button_enabled %>
     document.getElementById('link_template_dialog').addEventListener('click', (event) => {
