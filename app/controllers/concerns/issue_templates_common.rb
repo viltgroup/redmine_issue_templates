@@ -33,7 +33,7 @@ module IssueTemplatesCommon
   def load_selectable_fields
     tracker_id = params[:tracker_id]
     project_id = params[:project_id]
-    render plain: {} && return if tracker_id.blank?
+    return render(plain: {}.to_json) if tracker_id.blank?
 
     custom_fields = core_fields_map_by_tracker_id(tracker_id: tracker_id, project_id: project_id).merge(custom_fields_map_by_tracker_id(tracker_id))
     render plain: { custom_fields: custom_fields }.to_json
