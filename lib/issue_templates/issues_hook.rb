@@ -77,7 +77,7 @@ module IssueTemplates
     end
 
     def plugin_setting
-      Setting.plugin_redmine_issue_templates
+      Setting.plugin_redmine_issue_templates.with_indifferent_access
     end
 
     def apply_all_projects?

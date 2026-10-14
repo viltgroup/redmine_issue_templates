@@ -1,5 +1,5 @@
 <% return '' unless @issue.project.module_enabled? :issue_templates %>
-<% plugin_setting = Setting.plugin_redmine_issue_templates %>
+<% plugin_setting = Setting.plugin_redmine_issue_templates.with_indifferent_access %>
 <% preview_button_enabled = plugin_setting['enable_preview_template_contents_button'].to_s == 'true' %>
 <% clear_button_enabled   = plugin_setting['enable_clear_subject_and_description_button'].to_s == 'true' %>
 <% return '' unless User.current.allowed_to?(:show_issue_templates, @issue.project)  %>
