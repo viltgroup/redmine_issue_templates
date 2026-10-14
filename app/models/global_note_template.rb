@@ -17,7 +17,7 @@ class GlobalNoteTemplate < (defined?(ApplicationRecord) == 'constant' ? Applicat
   attr_accessor :role_ids
   validates :role_ids, presence: true, if: :roles?
 
-  belongs_to :author, class_name: 'User', inverse_of: false, foreign_key: 'author_id'
+  belongs_to :author, class_name: 'Principal', inverse_of: false, foreign_key: 'author_id'
   belongs_to :tracker
 
   has_and_belongs_to_many :projects
