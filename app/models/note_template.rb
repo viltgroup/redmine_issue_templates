@@ -14,7 +14,7 @@ class NoteTemplate < (defined?(ApplicationRecord) == 'constant' ? ApplicationRec
   validates :role_ids, presence: true, if: :roles?
 
   belongs_to :project
-  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
+  belongs_to :author, class_name: 'Principal', foreign_key: 'author_id'
   belongs_to :tracker
 
   has_many :note_visible_roles, dependent: :nullify
