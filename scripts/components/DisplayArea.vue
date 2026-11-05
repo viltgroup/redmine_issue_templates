@@ -11,7 +11,7 @@
             : {{ item.value }} / {{ item.title }}
           </i>
         </span>
-        <i class="icon-only icon-del" v-on:click="$emit('delete', item)"></i>
+        <i class="icon-only icon-del" v-on:click="$emit('delete', item)"><svg class="s18 icon-svg" aria-hidden="true"><use :href="iconHref('del')"></use></svg></i>
       </li>
     </ul>
   </div>

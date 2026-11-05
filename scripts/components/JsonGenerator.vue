@@ -12,7 +12,8 @@
          :title="l('help_for_this_field')"
          data-tooltip-area="builtin_fields_help_area"
          data-tooltip-content="builtin_fields_help_content">
-        {{ l('help_for_this_field') }}
+        <svg class="s18 icon-svg" aria-hidden="true"><use :href="iconHref('help')"></use></svg>
+        <span class="icon-label">{{ l('help_for_this_field') }}</span>
         <span class="tooltip-area" id="builtin_fields_help_area"></span>
       </a>
     </p>
@@ -30,8 +31,8 @@
         v-model="model.value"
       />
       <span style="margin-left: 4px;" class="icon icon-add" v-on:click="addField">
-
-        {{ l('button_add') }}
+        <svg class="s18 icon-svg" aria-hidden="true"><use :href="iconHref('add')"></use></svg>
+        <span class="icon-label">{{ l('button_add') }}</span>
       </span>
     </p>
     <div id="field_information" class="wiki" v-if="model.title != ''">
@@ -41,10 +42,12 @@
     <display-area :items="items" v-on:delete="deleteField" />
     <p>
       <span class="icon icon-reload" id="reset-json" v-on:click="loadField">
-        {{ l('button_reset') }}
+        <svg class="s18 icon-svg" aria-hidden="true"><use :href="iconHref('reload')"></use></svg>
+        <span class="icon-label">{{ l('button_reset') }}</span>
       </span>
       <span class="icon icon-checked" v-on:click="applyJson">
-        {{ l('button_apply') }}
+        <svg class="s18 icon-svg" aria-hidden="true"><use :href="iconHref('checked')"></use></svg>
+        <span class="icon-label">{{ l('button_apply') }}</span>
       </span>
     </p>
     <!-- buildin field Generator -->

@@ -10,8 +10,8 @@
   <label for='select_note_template' style='font-weight: bold;'>
     <%=h l(:label_template_for_note, default: 'Template for note') %>
   </label>
-  <a class='icon template_tooltip' id='link_<%= element_id %>_dialog' href='#<%= element_id %>_dialog' onclick='noteTemplateNS.changeNoteTemplateList("<%= element_id %>")'>
-    <%=h l(:display_and_filter_issue_templates_in_dialog, default: 'Filter Templates') %>
+  <a class='icon template_tooltip' id='link_<%= element_id %>_dialog' href='#<%= element_id %>_dialog' onclick='noteTemplateNS.changeNoteTemplateList("<%= element_id %>")'><%= sprite_icon('eye', plugin: 'redmine_issue_templates') %>
+    <span class="icon-label"><%=h l(:display_and_filter_issue_templates_in_dialog, default: 'Filter Templates') %></span>
   </a>
   <!-- dialog box -->
   <div id='<%= element_id %>_dialog' class='overlay'>

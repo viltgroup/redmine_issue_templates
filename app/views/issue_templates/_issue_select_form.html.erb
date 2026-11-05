@@ -10,28 +10,28 @@
       <option value="">---</option>
     </select>
 
-    <a class='icon icon-hint' id='issue_template_related_link' style='display: none;' target='_blank' rel='noopener'></a>
+    <a class='icon icon-hint' id='issue_template_related_link' style='display: none;' target='_blank' rel='noopener'><%= sprite_icon('ticket', plugin: 'redmine_issue_templates') %></a>
 <% if preview_button_enabled %>
-    <a class='icon template_tooltip' id='link_template_dialog' href='#issue_template_dialog'>
-      <%=h l(:display_and_filter_issue_templates_in_dialog, default: 'Filter Templates') %>
+    <a class='icon template_tooltip' id='link_template_dialog' href='#issue_template_dialog'><%= sprite_icon('eye', plugin: 'redmine_issue_templates') %>
+      <span class="icon-label"><%=h l(:display_and_filter_issue_templates_in_dialog, default: 'Filter Templates') %></span>
     </a>
 <% end %>
     <% if setting.enable_help? %>
         <a class='icon icon-help template-help' title='<%= l(:about_template_help_message) %>'
            data-tooltip-area='template-help-message-area'
-           data-tooltip-content='template_help_content'>
-          <%= l(:label_help_message) %>
+           data-tooltip-content='template_help_content'><%= sprite_icon('help') %>
+          <span class="icon-label"><%= l(:label_help_message) %></span>
           <span class='tooltip-area' id='template-help-message-area'></span>
         </a>
     <% end %>
 <% if clear_button_enabled %>
-    <a class='icon icon-erase' title='<%= l(:erase_issue_subject_and_description, default: 'Erase') %>' id='erase_template'>
-      <%= l(:erase_issue_subject_and_description, default: 'Erase') %>
+    <a class='icon icon-erase' title='<%= l(:erase_issue_subject_and_description, default: 'Erase') %>' id='erase_template'><%= sprite_icon('eraser', plugin: 'redmine_issue_templates') %>
+      <span class="icon-label"><%= l(:erase_issue_subject_and_description, default: 'Erase') %></span>
     </a>
 <% end %>
     <a class='icon icon-reload disabled' title='<%= l(:revert_before_applying_template, default: 'Revert') %>'
-       id='revert_template' disabled='disabled'>
-      <%= l(:revert_before_applying_template, default: 'Revert') %>
+       id='revert_template' disabled='disabled'><%= sprite_icon('reload') %>
+      <span class="icon-label"><%= l(:revert_before_applying_template, default: 'Revert') %></span>
     </a>
     <span id='original_subject' style='display: none;'></span>
     <span id='original_description' style='display: none;'></span>

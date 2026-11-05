@@ -59,7 +59,8 @@ Redmine::Plugin.register :redmine_issue_templates do
              }
 
     menu :admin_menu, :redmine_issue_templates, { controller: 'global_issue_templates', action: 'index' },
-         caption: :global_issue_templates, html: { class: 'icon icon-global_issue_templates' }
+         caption: :global_issue_templates, icon: 'template', plugin: :redmine_issue_templates,
+         html: { class: 'icon icon-global_issue_templates' }
 
     menu :project_menu, :issue_templates, { controller: 'issue_templates', action: 'index' },
          caption: :issue_templates, param: :project_id,

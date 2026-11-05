@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+  Icons from Tabler Icons (https://tabler.io/icons), MIT licence,
+  Copyright (c) 2020-2024 Pawel Kuna. Same source and release (v3.43.0) Redmine
+  core uses for its own sprite, so these match visually. Structure mirrors
+  Redmine's app/assets/images/icons.svg: stroke, fill and stroke-width come from
+  the svg.icon-svg rule in core's stylesheet, so they are deliberately not set here.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" class="icon--sprite">
+  <defs>
+    <symbol viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" id="icon--eraser">
+      <path d="M19 20h-10.5l-4.21 -4.3a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9.2 9.3"/>
+      <path d="M18 13.3l-6.3 -6.3"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" id="icon--eye">
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
+      <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" id="icon--file-import">
+      <path d="M14 3v4a1 1 0 0 0 1 1h4"/>
+      <path d="M5 13v-8a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2h-5.5m-9.5 -2h7m-3 -3l3 3l-3 3"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" id="icon--template">
+      <path d="M4 5a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1l0 -2"/>
+      <path d="M4 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -6"/>
+      <path d="M14 12l6 0"/>
+      <path d="M14 16l6 0"/>
+      <path d="M14 20l6 0"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" id="icon--ticket">
+      <path d="M15 5l0 2"/>
+      <path d="M15 11l0 2"/>
+      <path d="M15 17l0 2"/>
+      <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"/>
+    </symbol>
+  </defs>
+</svg>

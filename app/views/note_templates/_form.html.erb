@@ -47,8 +47,8 @@
                     label: l(:issue_template_note) %>
     <a class='icon icon-help template-help' title='<%= l(:help_for_this_field) %>'
        data-tooltip-area='memo_help_area'
-       data-tooltip-content='memo_help_content'>
-      <%= l(:help_for_this_field) %>
+       data-tooltip-content='memo_help_content'><%= sprite_icon('help') %>
+      <span class="icon-label"><%= l(:help_for_this_field) %></span>
       <span class='tooltip-area' id='memo_help_area'></span>
     </a>
   </p>
@@ -57,8 +57,8 @@
     <%= f.check_box :enabled, label: l(:label_enabled) %>
     <a class='icon icon-help template-help' title='<%= l(:help_for_this_field) %>'
        data-tooltip-area='enabled_help_area'
-       data-tooltip-content='enabled_help_content'>
-      <%= l(:help_for_this_field) %>
+       data-tooltip-content='enabled_help_content'><%= sprite_icon('help') %>
+      <span class="icon-label"><%= l(:help_for_this_field) %></span>
       <span class='tooltip-area' id='enabled_help_area'></span>
     </a>
   </p>
